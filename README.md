@@ -1,4 +1,41 @@
 # 홧 아이 런
+## file_process
+```
+1. fopen
+- FILE *fopen(const char *pathname, const char *mode);
+    parameter:
+        -pathname:파일 경로
+        - mode: options
+    return:
+        성공시: 열린 파일 포인터 (stream)
+        실패시: NULL
+- fopen options:
+    "r" : readOnly, start at head, work only file exist
+    "r+" : read and write, start at head,  work only file exist
+    "w" : writeOnly, start at head, if file exist delete it and recreate
+    "w+" : read and write, start at head, if file exist delete it and recreate
+    - a means append
+    "a" : writeOnly, start at bottom, if file exist read, does'n create
+    "a+" : read and write, start at bottom, if file exist than read, if doen't create
+2. fclose
+- int fclose(FILE *stream)
+    parameter: stream: fopen으로 연 파일 포인터
+    return : 성공시 0, 실패시 EOF(End Of File)
+- fclose option:
+3. ftell : 현재 파일 오프셋 가져오기(GUI의 경우 커서의 위치)
+ - long ftell(FILE *stream)
+    return : 성공시 파일 포지션(오프셋값) , 실패시 -1
+4. fseek : 오프셋 설정
+- int fseek(FILE *stream, long offset, int whence)
+- parameter:
+    whence:오프셋의 기준
+        - SEEK_SET: 파일의 시작 위치 기준
+        - SEEK_END : 파일의 끝 위치 기준
+        - SEEK_CUR : 현재 오프셋 기준
+- return: 성공시 파일 포지션(오프셋 값), 실패시 -1
+
+
+```
 ## process
 ```
 1. child process -> parent process: sigchild API를 통하여 

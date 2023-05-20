@@ -1,1 +1,8 @@
+# Ignore all
+*
+# Unignore all with extension
+!*.*
+# unignore all dirs
+!*/
 .vscode
+*.dSYM
