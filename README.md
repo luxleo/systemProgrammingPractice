@@ -1,5 +1,5 @@
 # 홧 아이 런
-## file_process
+## file_processing
 ```
 1. fopen
 - FILE *fopen(const char *pathname, const char *mode);
@@ -22,10 +22,10 @@
     parameter: stream: fopen으로 연 파일 포인터
     return : 성공시 0, 실패시 EOF(End Of File)
 - fclose option:
-3. ftell : 현재 파일 오프셋 가져오기(GUI의 경우 커서의 위치)
+3. ftell : 현재 파일 오프셋 가져오기(GUI의 경우 커서의 위치) (단위는BYTE)
  - long ftell(FILE *stream)
     return : 성공시 파일 포지션(오프셋값) , 실패시 -1
-4. fseek : 오프셋 설정
+4. fseek : 오프셋 설정(단위는 BYTE)
 - int fseek(FILE *stream, long offset, int whence)
 - parameter:
     whence:오프셋의 기준
@@ -33,6 +33,18 @@
         - SEEK_END : 파일의 끝 위치 기준
         - SEEK_CUR : 현재 오프셋 기준
 - return: 성공시 파일 포지션(오프셋 값), 실패시 -1
+5. 파일 읽고 쓰기
+-write mode: 메모장에 쓰는 것과 같이 저장
+    10 저장시 -> 1:0x31, 0x30 저장
+- binary mode: 데이터 그대로 저장 (자원 소모가 훨씬 적다)
+    10 저장시 -> 0x0a 저장
+    - fprinf
+    int fprintf(FILE *stream, const char *format, ...)
+    parameter:
+        format: "%d "...
+    return: 성공시: 쓰여진 데이터 크기, 실패시: 음수
+    - fscanf: int fscanf(FILE *stream, const char *format, ...)
+    return : 성공시: 입력 받은 데이터 갯수, 실패시 :EOF
 
 
 ```
